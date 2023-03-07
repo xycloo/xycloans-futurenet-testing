@@ -1,3 +1,5 @@
+> all the secret keys in the below scripts are for demonstration purposes only and are not to be used in any environment which isn't the test network.
+
 # Xycloans testing on Futurenet
 
 > Since Sorban doesn't have an ecosysten of protocols yet, you won't be able to leverage flash loans in a real-use-case scenario as of now. 

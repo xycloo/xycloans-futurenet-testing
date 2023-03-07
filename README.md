@@ -66,3 +66,42 @@ In fact, we can run `./check_batch_shares.sh GBPZTUMOULFU4XVRMF6S34LIRISHH7EHJ5S
 success
 {"curr_s":"19993903","deposit":"20000000","init_s":"19993903"}
 ```
+
+## Borrowing a flash loan
+If you want to try borrowing rather than lending, the `borrow.sh` script will help you borrow your first flash loan on Soroban.
+
+First things first, you'll need to deploy the example receiver contract from https://github.com/xycloo/xycloans/tree/main/examples/simple. So, you'll need to clone the xycloans repo, then:
+
+```
+$ cd xycloans/receiver-standard
+$ cargo +nightly build \
+    --target wasm32-unknown-unknown \
+    --release \
+    -Z build-std=std,panic_abort \
+    -Z build-std-features=panic_immediate_abort
+$ cd examples/simple
+$ cargo +nightly build \
+    --target wasm32-unknown-unknown \
+    --release \
+    -Z build-std=std,panic_abort \
+    -Z build-std-features=panic_immediate_abort
+$ soroban contract deploy --wasm ../target/wasm32-unknown-unknown/release/simple.wasm --secret-key $YOUR_SECRET --rpc-url https://future.stellar.kai.run:443/soroban/rpc --network-passphrase 'Test SDF Future Network ; October 2022' 
+```
+
+Once you deployed the contract and have the contract's id hash, you'll need to open the `borrow.sh` script, set the contract hash id as the `RECEIVER` (line 5), then go to https://strkey-encode.xycloo.com/ to strkey encode the contract hash and set it as the `RECEIVER_ADDR` (line 6). 
+
+Then, change the following lines changing the accounts for accounts that you have created on Futurenet. `AMOUNT` is the amount of stroops you are going to borrow.
+
+```
+# Your settings:
+FEES_ADDR="GDAJ7LTOQLTAQCDKHTI3MXSY6LNQZE4OP2ZZGVTZLIONJ6D3Y6WSHBCQ"
+FEES_ADDR_SECRET="SDOTFZRK3TPVMBWGOWBZQA7DHZOFQGGZ73NJTOQZQDRCDTVRIGRBN4KG"
+BORROWER_ADDR="GDCZNP76XCMXRTLBTL4AESVN4XBJUWUYIDBRZG2CEWKY5RI5AFQW5ZSK"
+BORROWER_SECRET="SB3YEWVNEGSPARBL2E3NPXFPGCPBNB4UUDXKSYFGEPVLRG2IJ6E3AHJV"
+AMOUNT=10000000000 # we're borrowing 1000 XLM
+```
+
+Once you're done you're ready to run the script!
+
+You should see the invocation executing successfully. You can also check the state of the chain after the borrow by looking at the XLM balance of the receiver contract (that should have 9.5 XLM since we xferred 10 XLM to it before borrowing (emulating that the receiver contract has earned 10 XLM from its operations) at line 25 of the script, of which 0.5 went to the vault as fees (0.05% of the borrowed amount)).
+

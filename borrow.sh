@@ -1,5 +1,5 @@
 # use this is you're using the CLI downloaded form releases or built.
-alias soroban="/Users/tommasodeponti/Downloads/soroban"
+# alias soroban="/Users/tommasodeponti/Downloads/soroban"
 
 # After having deployed a `simple.wasm` (https://github.com/xycloo/xycloans/tree/main/examples/simple), set the contract's id as RECEIVER and set the strkey encoded contract's id as RECEIVER_ADDR (you can use https://strkey-encode.xycloo.com/)
 RECEIVER="a71aba7e74df68a20e9995edd66d2b07eeb59871c4feb5d2d5f4f87e14e79676"

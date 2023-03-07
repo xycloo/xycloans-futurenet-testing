@@ -16,6 +16,16 @@ Before we start, remember that the latest version of XycLoans is now on Futurene
 | xlm flash loan   | 6eb470e872ad67527d71c428607212dd5306d7118b54739216c2907a072a4a85 | CBXLI4HIOKWWOUT5OHCCQYDSCLOVGBWXCGFVI44SC3BJA6QHFJFIKM7R |
 
 
+## On-chain tests
+- Auth tests: `invalid_auth.sh`
+- Deposit: `deposit.sh`
+- Successful flash loan: `borrow.sh`
+- Unsuccessful flash loan: `unsuccessful_borrow.sh`
+- Provide liquidity: `deposit.sh`
+- Fee withdrawals: `withdraw_batch.sh`
+
+# Instructions
+
 ## Providing liquidity to the XLM pool
 Since currently there only is an XLM vault/flash-loan pair, you're going to be able to only provide liquidity for XLM flash loans.
 

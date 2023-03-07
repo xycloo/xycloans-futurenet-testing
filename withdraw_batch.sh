@@ -1,5 +1,5 @@
 # use this is you're using the CLI downloaded form releases or built.
-alias soroban="/Users/tommasodeponti/Downloads/soroban"
+# alias soroban="/Users/tommasodeponti/Downloads/soroban"
 
 PROXY="7fd59b4aa2c634157a08727406e37dc8b4a4b68c4ea4e747ea4bf17073f18f6e"
 PROXY_ADDR="CB75LG2KULDDIFL2BBZHIBXDPXELJJFWRRHKJZ2H5JF7C4DT6GHW4PJQ"

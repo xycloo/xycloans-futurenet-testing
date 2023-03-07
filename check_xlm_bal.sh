@@ -1,5 +1,5 @@
 # use this is you're using the CLI downloaded form releases or built.
-alias soroban="/Users/tommasodeponti/Downloads/soroban"
+#alias soroban="/Users/tommasodeponti/Downloads/soroban"
 
 FEES_ADDR_SECRET="SDOTFZRK3TPVMBWGOWBZQA7DHZOFQGGZ73NJTOQZQDRCDTVRIGRBN4KG"
 
